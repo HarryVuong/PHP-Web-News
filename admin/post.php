@@ -22,6 +22,7 @@
 	}
 
 	$start = ($current_page - 1) * $limit;
+	$start = $start < 0 ? 0 : $start;
 
 	$sql = "SELECT * FROM posts a JOIN category b on a.category_id = b.category_id ORDER BY createdate DESC LIMIT $start, $limit";
 	$data = $adminlib->get_list($sql);
